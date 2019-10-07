@@ -1,5 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
 //
 // This project is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -25,4 +24,10 @@
 require_once('config.php');
 require_once('setup.php');
 
-echo "hello world";
+// Load the main template.
+$m = new Mustache_Engine(array(
+        'loader' => new Mustache_Loader_FilesystemLoader(dirname(__FILE__) . '/assets/templates'),
+));
+
+// Render the template.
+echo $m->render('index', array());
