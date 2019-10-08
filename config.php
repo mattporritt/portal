@@ -20,3 +20,10 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+unset($CFG);
+global $CFG;
+$CFG = new stdClass();
+
+// Webservice info.
+$CFG->webservice_end_point = 'https://ecu-demo.catalyst-au.net/webservice/restful/server.php/';
+$CFG->weservice_key = '';
