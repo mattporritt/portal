@@ -41,7 +41,12 @@ $users = array();
 $timestamp = strtotime('today midnight');
 
 foreach ($results['users'] as $result) {
-    if($result['lastlogin'] < $timestamp) {
+    if($result['lastaccess'] < $timestamp) {
+        if ($result['lastaccess'] == 0 ) {
+            $result['lastaccess'] = "No Access";
+        } else {
+            $result['lastaccess'] = date('m/d/Y H:i:s', $result['lastaccess']);;
+        }
         $users[] = $result;
     }
 }

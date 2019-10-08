@@ -71,13 +71,15 @@
 <!-- Page Content -->
   <div class="container">
     <div class="row">
-      <div class="col-10">
+      <div class="col-11">
         <table class="table table-striped table-dark">
   <thead>
     <tr>
       <th scope="col">First</th>
       <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Last Access</th>
     </tr>
   </thead>
   <tbody>
@@ -85,7 +87,10 @@
     <tr>
       <td>{{ firstname }}</td>
       <td>{{ lastname }}</td>
-      <td>@mdo</td>
+      <td>{{ email }} </td>
+      <td>{{ phone1 }} </td>
+      <td>{{ lastaccess }} </td>
+
     </tr>
     {{/ users }}
   </tbody>
