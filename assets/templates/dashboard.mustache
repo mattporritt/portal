@@ -28,6 +28,7 @@
 
         <title>ECU Portal Demo</title>
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/dashboard.css">
     </head>
 
     <body>
@@ -61,8 +62,8 @@
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div class="col-lg-12">
-          <h1 class="display-4 text-white mt-5 mb-2">Student report example</h1>
-          <p class="lead mb-5 text-white-50">This report shows students who have not logged into the LMS recently.</p>
+          <h1 class="display-4 text-white mt-5 mb-2">Student dashboard example</h1>
+          <p class="lead mb-5 text-white-50">This is a sample dashbaord that displays student information.</p>
         </div>
       </div>
     </div>
@@ -71,33 +72,59 @@
 <!-- Page Content -->
   <div class="container">
     <div class="row">
-      <div class="col-11">
-        <table class="table table-striped table-dark">
-  <thead>
-    <tr>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Last Access</th>
-    </tr>
-  </thead>
-  <tbody>
-  {{# users }}
-    <tr>
-      <td>{{ firstname }}</td>
-      <td>{{ lastname }}</td>
-      <td>{{ email }} </td>
-      <td>{{ phone1 }} </td>
-      <td>{{ lastaccess }} </td>
-
-    </tr>
-    {{/ users }}
-  </tbody>
-</table>
-      </div>
+    
+    <div class="col-3 studentinfo">
+      <p><strong>Student Details:</strong></p>
+      {{# user }}
+      <p>Name: {{ firstname }} {{ lastname }} <br/>
+      Email: {{ email }}</p>
+      {{/ user }}
     </div>
-    <!-- /.row -->
+    <div class="col-9">
+      <div class="row">
+          <div class="col-12">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Course Code</th>
+                  <th scope="col">Course Name</th>
+                  <th scope="col">Percentage complete</th>
+                </tr>
+              </thead>
+              <tbody>
+              {{# courses }}
+                <tr>
+                  <td><a href="https://ecu-demo.catalyst-au.net/course/view.php?id={{ id }}" target="_blank">{{ shortname }}</a></td>
+                  <td>{{ fullname }}</td>
+                  <td>{{ progress }}%</td>
+                </tr>
+                {{/ courses }}
+              </tbody>
+            </table>
+          </div>
+      </div>
+      {{!
+      Disabled due times
+      <div class="row">
+            <div class="col-6">
+            cell1
+            </div>
+            <div class="col-6">
+            cell2
+            </div>
+      </div>
+            <div class="row">
+            <div class="col-6">
+            cell3
+            </div>
+            <div class="col-6">
+            cell4
+            </div>
+      </div>
+      }}
+    </div>
+    
+    </div>
 
   </div>
   <!-- /.container -->
