@@ -160,8 +160,6 @@ $jsonquery = json_encode($query);
 $response = $client->post($url, $jsonquery)->getBody();
 $results = json_decode($response, true);
 
-error_log(print_r($results, true));
-
 // Load the main template.
 $m = new Mustache_Engine(array(
         'loader' => new Mustache_Loader_FilesystemLoader(dirname(__FILE__) . '/assets/templates'),
